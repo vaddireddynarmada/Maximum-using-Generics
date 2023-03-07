@@ -1,31 +1,30 @@
+import java.util.Arrays;
+
 public class MaxValue<T extends Comparable<T>> {
-    T num1;
-    T num2;
-    T num3;
+    T[] maxValue;
 
-    public MaxValue(T num1, T num2, T num3) {
-        this.num1 = num1;
-        this.num2 = num2;
-        this.num3 = num3;
+    public MaxValue(T[] maxValue) {
+        this.maxValue = maxValue;
+
     }
-
-    public static <T extends Comparable<T>> T maximumGenerict(T num1, T num2, T num3) {
-        T maximumValue = num1;
-        if (num2.compareTo(maximumValue) > 0)
-            maximumValue = num2;
-        if (num3.compareTo(maximumValue) > 0)
-            maximumValue = num3;
-        System.out.println(num1+" "+num2+" "+num3);
-        return maximumValue;
+    public static <T extends Comparable<T>> T[] maximum(T... maxValue) {
+        System.out.println("Given elements ");
+        for (T element : maxValue) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+        System.out.println("After Sorting : ");
+        Arrays.sort(maxValue);
+        for (T element : maxValue) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+        return maxValue;
     }
 
     public static void main(String[] args) {
-        Integer intValue = maximumGenerict(10, 34, 78);
-        Float floatValue = maximumGenerict(10.3f, 20.9f, 56.2f);
-        String stringValue = maximumGenerict("xyz", "ew", "re");
-        System.out.println("Maximum Integer value : " + intValue);
-        System.out.println("Maximum Float value : " + floatValue);
-        System.out.println("Maximum String value : " + stringValue);
-
+        maximum(23, 78, 36,45,23,2,5,78);
+        maximum("xyz", "dij", "jsd","drg","wdd");
+        maximum(23f, 9f, 4.3f,56.3f,34.2f);
     }
 }
